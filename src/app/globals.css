@@ -67,6 +67,7 @@ header {
 /* report */
 #reportWrap {
     padding: 30px 0px 10px;
+    position: relative;
 }
 
 #reportHeader {
@@ -96,7 +97,7 @@ header {
     box-shadow: inset 1px 1px 2px #828282;
 }
 #state {
-    width: 130px !important;
+    width: 150px !important;
 }
 
 #addBtnBox {
@@ -141,7 +142,7 @@ header {
     flex-wrap: wrap;
 }
 .askCard {
-    width: 300px;
+    width: 500px;
     position: relative;
     box-shadow: 1px 1px 2px #828282;
     border-top: 1px solid #d9d9d9;
@@ -152,6 +153,7 @@ header {
 .askCard > .innerTop
 , .askCard > .innerBottom {
     display: flex;
+    flex-wrap: wrap;
 }
 .askCard > .innerTop > .cardRowNum {
     width: 20px;
@@ -169,6 +171,11 @@ header {
 .askCard > .innerTop > .cardTitle {
     font-weight: bold;
     padding-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    width: 420px;
 }
 .askCard > .innerTop > .cardState {
     position: absolute;
@@ -190,6 +197,9 @@ header {
 }
 .askCard > .innerTop > .cardState.IMP {
     background-color: #ffaca1;
+}
+.askCard > .innerTop > .cardState.NEW {
+    background-color: #fdff8e;
 }
 .askCard > .innerBottom {
     margin-top: 5px;
@@ -216,7 +226,16 @@ header {
 
 /* report */
 
-/* report header mobile */
+/* report mobile */
+@media (max-width: 1026px) {
+    .askCard {
+        width: 100%;
+    }
+    .askCard > .innerTop > .cardTitle {
+        width: 90%;
+    }
+}
+
 @media (max-width: 799px) {
     #reportHeader {
       height: 70px;
@@ -228,6 +247,15 @@ header {
 
     #addBtnBox {
         height: 50%;
+    }
+}
+
+@media (max-width: 558px) {
+    .askCard {
+        width: 97%;
+    }
+    .askCard > .innerTop > .cardTitle {
+        width: 75%;
     }
 }
 
@@ -251,4 +279,50 @@ header {
         width: 100%;
     }
 }
-/* report header mobile */
+/* report mobile */
+
+/* AddAsk */
+#addAskWrap {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 500px;
+    height: 800px;
+    background-color: #fff;
+    z-index: 99999;
+    border: 1px solid #000;
+}
+#addAskWrap > #basicBox {
+    width: 100%;
+}
+#addAskWrap > #basicBox > div {
+    margin-top: 10px;
+}
+#addAskWrap > #basicBox > div > .basicTh {
+    display: inline-block;
+    width: 80px;
+    margin-left: 10px;
+    text-align: right;
+}
+#addAskWrap > #basicBox > div > .basicTd {
+    display: inline-block;
+    padding-left: 6px;
+}
+#addAskWrap > #basicBox > div > .basicTd > select
+, #addAskWrap > #basicBox > div > .basicTd > input {
+    border: 1px solid #d9d9d9;
+    padding: 2px 3px;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 2px #828282;
+}
+
+#addAskWrap > #basicBox > div > .basicTd > #addGwType
+, #addAskWrap > #basicBox > div > .basicTd > #addCustomer {
+    width: 130px;
+}
+#addAskWrap > #basicBox > div > .basicTd > #addWriter
+, #addAskWrap > #basicBox > div > .basicTd > #addTitle {
+    width: 356px;
+}
+
+/* AddAsk */

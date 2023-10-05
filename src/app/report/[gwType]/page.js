@@ -1,5 +1,6 @@
 'use client'
 
+import { AddAsk } from "@/app/component/AddAsk";
 import { AskCard } from "@/app/component/AskCard";
 import { useParams } from "next/navigation"
 
@@ -9,6 +10,12 @@ export default function Report() {
 
   return (
     <div id="reportWrap">
+
+    {/* + 문의 사항추가 다디아로그 */}
+      <AddAsk/>
+    {/* - 문의 사항추가 다디아로그 */}
+
+    {/* + 검색및 추가 */}
       <div id="reportHeader">
 
         <div id="searchBox">
@@ -35,11 +42,13 @@ export default function Report() {
         </div>
 
       </div>
+    {/* - 검색및 추가 */}
 
+    {/* + 문의사항 현황 */}
       <div id="askCardBox">
         <AskCard
           cardRowNum='1'
-          cardTitle='결의서 양식 수정 요청의건'
+          cardTitle='결의서 양식 수정 요청의건 오늘저녁은 돼지갈비 먹었음. 배부르다.'
           cardState='ING'
           cardCustomer='대구테크노파크'
           cardWriter='김은수'
@@ -49,7 +58,7 @@ export default function Report() {
 
         <AskCard
           cardRowNum='2'
-          cardTitle='결의서 양식 수정 요청의건'
+          cardTitle='결의서 양식 수정 요청의건 오늘저녁은 돼지갈비 먹었음. 배부르다.'
           cardState='END'
           cardCustomer='대구테크노파크'
           cardWriter='김은수'
@@ -66,7 +75,18 @@ export default function Report() {
           cardWriteDt='2023/10/04'
           askSeq='3'
         />  
+
+        <AskCard
+          cardRowNum='4'
+          cardTitle='결의서 양식 수정 요청의건'
+          cardState='NEW'
+          cardCustomer='대구테크노파크'
+          cardWriter='김은수'
+          cardWriteDt='2023/10/04'
+          askSeq='4'
+        />  
       </div>
+    {/* - 문의사항 현황 */}
     </div>
   )
 }
