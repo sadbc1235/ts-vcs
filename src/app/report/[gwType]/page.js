@@ -3,16 +3,21 @@
 import { AddAsk } from "@/app/component/AddAsk";
 import { AskCard } from "@/app/component/AskCard";
 import { useParams } from "next/navigation"
+import { useState } from "react";
 
 export default function Report() {
   const params = useParams();
   const gwType = params.gwType;
+  const [isAddAskOpen, setIsAddAskOpen] = useState(false);
 
   return (
     <div id="reportWrap">
 
     {/* + 문의 사항추가 다디아로그 */}
-      <AddAsk/>
+      <AddAsk 
+        isAddAskOpen={isAddAskOpen} 
+        closeAddDialog={() => setIsAddAskOpen(false)}
+      />
     {/* - 문의 사항추가 다디아로그 */}
 
     {/* + 검색및 추가 */}
@@ -26,9 +31,10 @@ export default function Report() {
 
           <select id="state">
             <option value=''>전체</option>
+            <option value='NEW'>NEW</option>
             <option value='ING'>ING</option>
             <option value='END'>END</option>
-            <option value='X'>IMPOSSIBLE</option>
+            <option value='IMP'>IMP</option>
           </select>
 
           <div id="searchBtn">
@@ -38,7 +44,11 @@ export default function Report() {
         </div>
 
         <div id="addBtnBox">
-          <input type="button" value="ADD" />
+          <input 
+            type="button" 
+            value="ADD"
+            onClick={() => setIsAddAskOpen(true)}
+          />
         </div>
 
       </div>
